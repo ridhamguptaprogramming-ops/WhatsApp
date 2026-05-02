@@ -1,12 +1,12 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { config } from './config/env.js';
-import authRoutes from './routes/auth.js';
-import userRoutes from './routes/users.js';
-import chatRoutes from './routes/chats.js';
-import messageRoutes from './routes/messages.js';
-import mediaRoutes from './routes/media.js';
-import { errorHandler } from './middleware/errorHandler.js';
+import { config } from './config/env';
+import authRoutes from './routes/auth';
+import userRoutes from './routes/users';
+import chatRoutes from './routes/chats';
+import messageRoutes from './routes/messages';
+import mediaRoutes from './routes/media';
+import { errorHandler } from './middleware/errorHandler';
 
 const app: Application = express();
 

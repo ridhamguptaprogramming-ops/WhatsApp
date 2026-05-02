@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,10 +10,14 @@
   }
   
   html, body, #root {
-    @apply h-full w-full m-0 p-0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   body {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply font-sans bg-background text-text-primary antialiased;
   }
   
@@ -48,6 +53,7 @@
   }
   
   .btn-secondary {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply btn bg-gray-200 text-text-primary hover:bg-gray-300 
            focus:ring-gray-400;
   }
@@ -80,15 +86,15 @@
   }
   
   .avatar-sm {
-    @apply avatar w-10 h-10;
+    @apply rounded-full object-cover bg-gray-200 w-10 h-10;
   }
   
   .avatar-md {
-    @apply avatar w-12 h-12;
+    @apply rounded-full object-cover bg-gray-200 w-12 h-12;
   }
   
   .avatar-lg {
-    @apply avatar w-16 h-16;
+    @apply rounded-full object-cover bg-gray-200 w-16 h-16;
   }
   
   /* Badge */
@@ -104,11 +110,11 @@
   }
   
   .message-bubble-sent {
-    @apply message-bubble bg-primary text-white ml-auto rounded-br-sm;
+    @apply max-w-[75%] px-4 py-2 rounded-2xl break-words bg-primary text-white ml-auto rounded-br-sm;
   }
   
   .message-bubble-received {
-    @apply message-bubble bg-white text-text-primary mr-auto rounded-bl-sm;
+    @apply max-w-[75%] px-4 py-2 rounded-2xl break-words bg-white text-text-primary mr-auto rounded-bl-sm;
   }
   
   /* Status indicator */
@@ -117,15 +123,15 @@
   }
   
   .status-online {
-    @apply status-indicator bg-success;
+    @apply w-3 h-3 rounded-full border-2 border-white bg-success;
   }
   
   .status-offline {
-    @apply status-indicator bg-gray-400;
+    @apply w-3 h-3 rounded-full border-2 border-white bg-gray-400;
   }
   
   .status-away {
-    @apply status-indicator bg-yellow-500;
+    @apply w-3 h-3 rounded-full border-2 border-white bg-yellow-500;
   }
 }
 

@@ -2,10 +2,28 @@ import { useEffect, useRef } from 'react';
 import { useChatStore } from '../../store/chatStore';
 import { useAuthStore } from '../../store/authStore';
 import { MoreVertical, Phone, Video, Info, ArrowLeft } from 'lucide-react';
-import MessageBubble from '../Message/MessageBubble';
 import MessageInput from '../Message/MessageInput';
 
-export default function ChatWindow() {
+type MessageBubbleProps = {
+  message: any;
+  isOwn: boolean;
+};
+
+function MessageBubble({ message, isOwn }: MessageBubbleProps) {
+  const bubbleClasses = isOwn
+    ? 'self-end bg-primary text-white'
+    : 'self-start bg-gray-100 text-text-primary';
+
+  const content = message?.content ?? message?.text ?? '';
+
+  return (
+    <div className={`max-w-[75%] px-4 py-2 rounded-2xl ${bubbleClasses}`}>
+      <p>{content}</p>
+    </div>
+  );
+}
+
+export default function ChatWindow () {
   const { activeChat, messages, setMessages, hasMoreMessages, isLoading } = useChatStore();
   const { user } = useAuthStore();
   const messagesEndRef = useRef<HTMLDivElement>(null);
